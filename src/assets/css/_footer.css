@@ -1,0 +1,40 @@
+@layer components {
+  .footer {
+    @apply
+    sticky-bar
+    bottom-0
+    border-t
+    overflow-hidden;
+  }
+
+  .footer__container {
+    @apply
+    sticky-bar__container
+    py-2;
+  }
+
+  .footer__copy {
+    @apply
+    text-sm
+    sm:text-base
+    flex
+    flex-wrap
+    gap-2;
+  }
+
+  .footer__menu {
+    @apply
+    flex
+    flex-nowrap
+    gap-4
+    text-dark-300
+    dark:text-dark-100;
+  }
+
+  .footer__menu > *:hover {
+    @apply
+    scale-110
+    text-dark-400
+    dark:text-dark-200;
+  }
+}

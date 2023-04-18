@@ -1,0 +1,62 @@
+@layer components {
+  .filters {
+    @apply
+    text-lg
+    leading-6
+    overflow-y-auto;
+  }
+
+  .filters > ul > li {
+    @apply
+    overflow-hidden;
+  }
+
+  .filters__link {
+    @apply
+    overflow-hidden
+    mb-2
+    font-semibold
+    text-dark-400
+    dark:text-dark-100
+    flex
+    gap-1
+    items-center;
+  }
+
+  .filters > ul > li:not(:first-child) {
+    @apply
+    mt-4;
+  }
+
+  .filter {
+    @apply
+    space-y-2
+    border-l
+    border-dark-900/10
+    dark:border-dark-50/10
+    text-base;
+  }
+
+  .filter__link {
+    @apply
+    block
+    border-l
+    pl-2
+    -ml-px
+    border-transparent
+    hover:border-dark-400
+    text-dark-300
+    hover:text-dark-400
+    dark:hover:border-dark-100
+    dark:text-dark-200
+    dark:hover:text-dark-100;
+  }
+
+  .filter__link_active {
+    @apply
+    border-current
+    text-dark-400
+    dark:text-dark-100
+    font-semibold;
+  }
+}

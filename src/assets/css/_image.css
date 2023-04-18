@@ -1,0 +1,36 @@
+@layer components {
+  .image {
+    @apply
+    relative
+    block
+    overflow-hidden;
+  }
+
+  .image > * {
+    @apply
+    absolute
+    left-0
+    top-0
+    h-full
+    w-full
+    bg-gradient-to-t
+    from-dark-50
+    to-dark-100
+    dark:from-dark-600
+    dark:to-dark-700;
+  }
+
+  .image > img {
+    @apply
+    object-cover
+    h-full
+    w-full;
+  }
+
+  .image > span {
+    @apply
+    flex
+    justify-center
+    items-center;
+  }
+}

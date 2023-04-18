@@ -1,0 +1,28 @@
+@layer components {
+  .affix {
+    @apply
+    fixed
+    z-[9]
+    bottom-4
+    right-4
+    opacity-0;
+  }
+
+  .affix__btn {
+    @apply
+    flex
+    items-center
+    justify-center
+    gap-2
+    p-2
+    rounded
+    border
+    border-dark-900/10
+    dark:border-dark-50/10
+    bg-gray-50/95
+    dark:bg-dark-700/70
+    backdrop-blur
+    transition-colors
+    duration-500;
+  }
+}

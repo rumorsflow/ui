@@ -1,0 +1,44 @@
+@layer components {
+  .error-page {
+    @apply
+    w-full
+    py-16;
+  }
+
+  .error-page__status {
+    @apply
+    pb-7
+    text-center
+    text-9xl
+    sm:text-[10em]
+    tracking-widest
+    font-mono
+    font-black
+    bg-clip-text
+    text-transparent
+    bg-gradient-to-r
+    from-dark-50
+    via-dark-200
+    to-dark-50
+    dark:from-dark-100
+    dark:via-dark-200
+    dark:to-dark-100;
+  }
+
+  .error-page__title {
+    @apply
+    text-center
+    font-black
+    text-4xl;
+  }
+
+  .error-page__message {
+    @apply
+    sm:w-[26rem]
+    mx-auto
+    pt-5
+    text-justify
+    text-xl
+    tracking-wide;
+  }
+}
