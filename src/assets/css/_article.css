@@ -64,11 +64,17 @@
     justify-center;
   }
 
-  .article-share__link > * {
+  .article-share__link:hover {
+    @apply
+    transition-all
+    duration-300;
+  }
+
+  .article-share__link:hover > * {
     @apply
     transition-all
     duration-200
-    hover:scale-110;
+    scale-110;
   }
 
   .article-share__link:not(:last-child) {
@@ -76,14 +82,34 @@
     border-r;
   }
 
+  .article-share__link_fb {
+    @apply
+    hover:bg-facebook
+    hover:dark:bg-facebook
+    hover:text-gray-100;
+  }
+
+  .article-share__link_wa {
+    @apply
+    hover:bg-whatsapp
+    hover:dark:bg-whatsapp
+    hover:text-gray-100;
+  }
+
+  .article-share__link_tw {
+    @apply
+    hover:bg-twitter
+    hover:dark:bg-twitter
+    hover:text-gray-100;
+  }
+
   .article-share__link_copied {
     @apply
-    bg-green-800
-    hover:bg-green-800
-    text-white
-    dark:bg-green-800
-    dark:hover:bg-green-800
-    dark:text-white;
+    bg-amber-500
+    hover:bg-amber-500
+    dark:bg-amber-600
+    hover:dark:bg-amber-600
+    text-gray-100;
   }
 
   .article__container {
@@ -161,6 +187,7 @@
     no-underline
     text-green-800
     dark:text-green-500
+    text-sm
     font-normal
     hover:underline;
   }
@@ -169,7 +196,9 @@
     @apply
     font-extralight
     text-dark-300
-    dark:text-dark-200;
+    dark:text-dark-200
+    text-xs
+    font-normal;
   }
 
   .article__title {
@@ -180,8 +209,8 @@
 
   .article__title a {
     @apply
-    text-xl
-    font-medium
+    text-lg
+    font-semibold
     line-clamp-4;
   }
 
@@ -189,9 +218,12 @@
     @apply
     overflow-hidden
     block
-    text-base
+    text-sm
     font-light
     leading-6
+    font-medium
+    text-dark-300
+    dark:text-gray-400
     max-h-[11rem];
   }
 
@@ -233,7 +265,7 @@
     md:w-7/12
     lg:w-8/12
     h-[14rem]
-    md:h-[23rem]
+    md:h-[26.4375rem]
     text-gray-100
     dark:text-gray-300;
   }
@@ -270,12 +302,5 @@
   .first-article:hover img {
     @apply
     scale-105;
-  }
-
-  .article:hover .article__title a,
-  .first-article:hover .article__title a {
-    @apply
-    underline
-    underline-offset-4;
   }
 }

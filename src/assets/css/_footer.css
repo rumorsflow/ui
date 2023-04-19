@@ -15,8 +15,8 @@
 
   .footer__copy {
     @apply
-    text-sm
-    sm:text-base
+    text-xs
+    sm:text-sm
     flex
     flex-wrap
     gap-2;

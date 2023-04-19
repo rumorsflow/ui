@@ -48,8 +48,8 @@
   .notifications__no-data {
     @apply
     self-center
-    text-lg
-    font-medium
+    text-base
+    font-normal
     py-2
     text-dark-300
     dark:text-dark-100;

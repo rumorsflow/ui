@@ -1,7 +1,7 @@
 @layer components {
   .filters {
     @apply
-    text-xl
+    text-lg
     leading-6
     overflow-y-auto;
   }
@@ -34,7 +34,7 @@
     border-l
     border-dark-900/10
     dark:border-dark-50/10
-    text-lg;
+    text-base;
   }
 
   .filter__link {

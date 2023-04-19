@@ -45,13 +45,13 @@ export const ArticleShare: React.FC<ArticleShareProps> = ({ article }) => {
 
   return (
     <>
-      <a href={fb} className="article-share__link" target="_blank" rel="noreferrer">
+      <a href={fb} className="article-share__link article-share__link_fb" target="_blank" rel="noreferrer">
         <IconBrandFacebook size={25} />
       </a>
-      <a href={wa} className="article-share__link" target="_blank" rel="noreferrer">
+      <a href={wa} className="article-share__link article-share__link_wa" target="_blank" rel="noreferrer">
         <IconBrandWhatsapp size={25} />
       </a>
-      <a href={tw} className="article-share__link" target="_blank" rel="noreferrer">
+      <a href={tw} className="article-share__link article-share__link_tw" target="_blank" rel="noreferrer">
         <IconBrandTwitter size={25} />
       </a>
       {!!navigator?.clipboard && (

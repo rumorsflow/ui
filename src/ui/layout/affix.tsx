@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { IconArrowUp } from '@tabler/icons-react'
 
-import { useWindowScroll } from '@/hooks'
+import { scroll } from '@/lib'
 
 import { isFooterVisible } from './is-footer-visible'
 
@@ -13,11 +13,10 @@ const variants = {
 }
 
 export const Affix: React.FC = () => {
-  const [, scrollTo] = useWindowScroll()
   const { scrollY } = useScroll()
   const [animate, setAnimate] = useState<'visible' | 'withFooter' | 'hidden'>('hidden')
 
-  const onUp = useCallback(() => scrollTo({ y: 0 }, 'auto'), [scrollTo])
+  const onUp = useCallback(() => setTimeout(() => scroll({ y: 0 }, 'auto'), 0), [])
 
   useMotionValueEvent(scrollY, 'change', (current) => {
     if (current > 65) {

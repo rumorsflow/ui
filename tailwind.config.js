@@ -6,15 +6,6 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      fontFamily: {
-        sans: [
-          'Inter',
-          ...defaultTheme.fontFamily.sans,
-          {
-            fontFeatureSettings: '"cv02", "cv03", "cv04", "cv11"',
-          },
-        ],
-      },
       colors: {
         dark: {
           50: '#C1C2C5',
@@ -28,6 +19,9 @@ export default {
           800: '#141517',
           900: '#101113',
         },
+        twitter: '#08a0e9',
+        whatsapp: '#25d366',
+        facebook: '#4267B2',
       },
       lineClamp: {
         7: '7',
