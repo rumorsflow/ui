@@ -170,13 +170,13 @@ export const fetchArticles = (
   { index, size = APP_PER_PAGE, dt, sites, langs }: ArticlesRequest,
   signal?: AbortSignal
 ) => {
-  const params = []
+  const params = new URLSearchParams()
 
-  index && params.push(['index', index.toString()])
-  size && params.push(['size', size.toString()])
-  dt && params.push(['dt', dt])
-  sites?.length && params.push(['sites', sites.join()])
-  langs?.length && params.push(['langs', langs.join()])
+  index && params.set('index', index.toString())
+  size && params.set('size', size.toString())
+  dt && params.set('dt', dt)
+  sites?.length && params.set('sites', sites.join())
+  langs?.length && params.set('langs', langs.join())
 
-  return fetchFn<Page<Article>>(`/articles?${new URLSearchParams(params).toString()}`, { method: 'GET', signal })
+  return fetchFn<Page<Article>>(`/articles?${params.toString()}`, { method: 'GET', signal })
 }
