@@ -1,7 +1,7 @@
 @layer components {
   .filters {
     @apply
-    text-lg
+    text-xl
     leading-6
     overflow-y-auto;
   }
@@ -34,7 +34,7 @@
     border-l
     border-dark-900/10
     dark:border-dark-50/10
-    text-base;
+    text-lg;
   }
 
   .filter__link {
@@ -47,16 +47,16 @@
     hover:border-dark-400
     text-dark-300
     hover:text-dark-400
-    dark:hover:border-dark-100
-    dark:text-dark-200
-    dark:hover:text-dark-100;
+    dark:hover:border-dark-50
+    dark:text-dark-100
+    dark:hover:text-dark-50;
   }
 
   .filter__link_active {
     @apply
     border-current
     text-dark-400
-    dark:text-dark-100
+    dark:text-dark-50
     font-semibold;
   }
 }

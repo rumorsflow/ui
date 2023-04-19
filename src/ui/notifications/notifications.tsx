@@ -51,7 +51,7 @@ export const Notifications: React.FC = () => {
           </button>
         </>
       ) : (
-        <h5 className="notifications__no-data">no new articles</h5>
+        <h5 className="notifications__no-data">no new rumors</h5>
       )}
     </Popover>
   )
