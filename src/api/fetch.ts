@@ -172,25 +172,11 @@ export const fetchArticles = (
 ) => {
   const params = []
 
-  if (index) {
-    params.push(['index', index.toString()])
-  }
-
-  if (size) {
-    params.push(['size', size.toString()])
-  }
-
-  if (dt) {
-    params.push(['dt', dt])
-  }
-
-  if (sites?.length) {
-    params.push(['sites', sites.join()])
-  }
-
-  if (langs?.length) {
-    params.push(['langs', langs.join()])
-  }
+  index && params.push(['index', index.toString()])
+  size && params.push(['size', size.toString()])
+  dt && params.push(['dt', dt])
+  sites?.length && params.push(['sites', sites.join()])
+  langs?.length && params.push(['langs', langs.join()])
 
   return fetchFn<Page<Article>>(`/articles?${new URLSearchParams(params).toString()}`, { method: 'GET', signal })
 }
