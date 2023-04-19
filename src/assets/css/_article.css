@@ -54,7 +54,7 @@
     dark:bg-dark-800/90
     hover:bg-gray-50
     hover:dark:bg-dark-800/95
-    border-b-[1px]
+    border-b
     border-dark-900/10
     dark:border-dark-50/10
     py-2
@@ -73,7 +73,7 @@
 
   .article-share__link:not(:last-child) {
     @apply
-    border-r-[1px];
+    border-r;
   }
 
   .article-share__link_copied {
@@ -125,17 +125,17 @@
     .article-share__link {
       @apply
       static
-      border-t-[1px];
+      border-t;
     }
 
     .article-share__link:first-child {
       @apply
-      border-l-[1px];
+      border-l;
     }
 
     .article-share__link:last-child {
       @apply
-      border-r-[1px];
+      border-r;
     }
 
     .article__container {
@@ -243,10 +243,10 @@
     @apply
     static
     justify-around
-    gap-[1px]
+    gap-px
     bg-dark-900/10
     dark:bg-dark-50/10
-    p-[1px];
+    p-px;
   }
 
   .article_no-image .article-share__link,
