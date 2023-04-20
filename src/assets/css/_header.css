@@ -50,10 +50,11 @@
   .header__caption {
     @apply
     absolute
-    -top-3
+    -top-2
     left-0
     tracking-widest
-    text-[0.625em]
+    text-[0.6em]
+    font-medium
     text-dark-300
     dark:text-dark-200;
   }
