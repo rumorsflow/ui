@@ -1,6 +1,5 @@
 import React from 'react'
 import { defer, LoaderFunctionArgs } from 'react-router-dom'
-import { useInView } from 'react-cool-inview'
 
 import { APP_PER_PAGE } from '@/config'
 import { Article, fetchArticles, FetchResponse, fetchSites, Page, Site } from '@/api'
@@ -79,28 +78,16 @@ export function loader({ request }: LoaderFunctionArgs) {
 function ArticleList() {
   const { article, pages, onEnter } = useHomeValue()
 
-  const { observe } = useInView({
-    rootMargin: '50px 0px',
-    onEnter,
-  })
-
   return (
     <>
       {article && <FirstArticle article={article} />}
       <div className="article-list">
         {pages.map((page, index) => (
           <React.Fragment key={index}>
-            {page.data?.map((item, index2) => (
+            {page.data?.map((item) => (
               <GridArticle
-                ref={
-                  index === pages.length - 1 &&
-                  index2 === (page.data?.length ?? 0) - 1 &&
-                  page.size === (index === 0 ? 1 : 0) + (page.data?.length ?? 0) &&
-                  page.index + page.size < 650
-                    ? observe
-                    : null
-                }
                 key={item.id}
+                onEnter={pages.at(-1)?.data?.at(-1) === item ? onEnter : undefined}
                 article={item}
               />
             ))}
