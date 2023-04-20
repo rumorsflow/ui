@@ -4,7 +4,7 @@ import { useLocation, useSearchParams } from 'react-router-dom'
 import { useSites } from '@/store'
 import { Site } from '@/api'
 
-import { NavItem } from './nav-item'
+import { Item, NavItem } from './nav-item'
 
 const languages: Record<string, string> = {
   en: 'English',
@@ -33,7 +33,7 @@ const useData = () => {
       ),
     ]
 
-    const langData = Object.keys(languages)
+    const langData: Item[] = Object.keys(languages)
       .filter((l) => uniqueLangs.includes(l))
       .map((l) => {
         const active = langs.includes(l)
@@ -43,7 +43,7 @@ const useData = () => {
         return { to: `${pathname}?${q.toString()}`, label: languages[l], active }
       })
 
-    const siteData = (langs.length ? sites.filter((s) => s.languages.some((l) => langs.includes(l))) : sites).map(
+    const siteData: Item[] = (langs.length ? sites.filter((s) => s.languages.some((l) => langs.includes(l))) : sites).map(
       (site) => {
         const active = domains.includes(site.domain)
         const e = domains.filter((d) => d !== site.domain)
@@ -52,7 +52,7 @@ const useData = () => {
           ...toParams('lang', langs),
         ])
 
-        return { to: `${pathname}?${q.toString()}`, label: site.domain, active }
+        return { to: `${pathname}?${q.toString()}`, label: site.domain, active, img: site.favicon }
       }
     )
 

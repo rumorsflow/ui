@@ -34,21 +34,26 @@
     border-l
     border-dark-900/10
     dark:border-dark-50/10
-    text-base;
+    text-base
+    align-middle
+    leading-none;
   }
 
   .filter__link {
     @apply
-    block
+    flex
+    items-center
+    gap-2
     border-l
-    pl-2
+    pl-4
+    py-1
     -ml-px
     border-transparent
-    hover:border-dark-400
     text-dark-300
+    hover:border-dark-400
     hover:text-dark-400
-    dark:hover:border-dark-50
     dark:text-dark-100
+    dark:hover:border-dark-50
     dark:hover:text-dark-50;
   }
 
@@ -58,5 +63,14 @@
     text-dark-400
     dark:text-dark-50
     font-semibold;
+  }
+
+  .filter__favicon {
+    @apply
+    w-4
+    h-4
+    backdrop-contrast-50
+    dark:backdrop-contrast-0
+    dark:brightness-150;
   }
 }

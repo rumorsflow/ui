@@ -8,6 +8,7 @@ export type Page<T = unknown> = {
 export type Site = {
   id: string
   domain: string
+  favicon: string
   title: string
   languages: string[]
 }

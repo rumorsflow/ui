@@ -55,7 +55,7 @@ export const ArticleShare: React.FC<ArticleShareProps> = ({ article }) => {
         <IconBrandTwitter size={25} />
       </a>
       {!!navigator?.clipboard && (
-        <button onClick={onCopy} className={`article-share__link ${copied ? 'article-share__link_copied' : ''}`}>
+        <button onClick={onCopy} disabled={copied} className="article-share__link article-share__link_copy">
           <IconLink size={25} />
         </button>
       )}

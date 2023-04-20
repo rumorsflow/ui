@@ -5,6 +5,7 @@ export type Item = {
   to: string
   label: string
   active: boolean
+  img?: string
 }
 
 type NavItemProps = {
@@ -16,6 +17,7 @@ export const NavItem: React.FC<NavItemProps> = ({ data }) => (
     {data.map((item) => (
       <li key={item.label}>
         <Link to={item.to} className={item.active ? 'filter__link filter__link_active' : 'filter__link'}>
+          {item.img && <img src={item.img} className="filter__favicon" alt="" />}
           {item.label}
         </Link>
       </li>
