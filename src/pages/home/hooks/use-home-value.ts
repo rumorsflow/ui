@@ -3,6 +3,7 @@ import { useAsyncValue, useSearchParams } from 'react-router-dom'
 import { Event } from 'react-cool-inview'
 
 import { APP_PER_PAGE } from '@/config'
+import { scroll } from '@/lib'
 import { Article, fetchArticles, Page } from '@/api'
 
 export const useHomeValue = <T extends HTMLElement | null>() => {
@@ -33,7 +34,7 @@ export const useHomeValue = <T extends HTMLElement | null>() => {
         setPages((prev) => [...prev, response.data])
       }
     },
-    [dt, pages, controller, params]
+    [dt, pages, controller, params, page] // eslint-disable-line
   )
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export const useHomeValue = <T extends HTMLElement | null>() => {
   }, [controller])
 
   useEffect(() => {
-    window.scrollTo({ left: 0, top: 0 })
+    scroll({ y: 0 }, 'auto')
     setPages([page])
   }, [page])
 

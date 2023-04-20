@@ -43,18 +43,15 @@ const useData = () => {
         return { to: `${pathname}?${q.toString()}`, label: languages[l], active }
       })
 
-    const siteData: Item[] = (langs.length ? sites.filter((s) => s.languages.some((l) => langs.includes(l))) : sites).map(
-      (site) => {
-        const active = domains.includes(site.domain)
-        const e = domains.filter((d) => d !== site.domain)
-        const q = new URLSearchParams([
-          ...toParams('site', active ? e : [site.domain, ...e]),
-          ...toParams('lang', langs),
-        ])
+    const siteData: Item[] = (
+      langs.length ? sites.filter((s) => s.languages.some((l) => langs.includes(l))) : sites
+    ).map((site) => {
+      const active = domains.includes(site.domain)
+      const e = domains.filter((d) => d !== site.domain)
+      const q = new URLSearchParams([...toParams('site', active ? e : [site.domain, ...e]), ...toParams('lang', langs)])
 
-        return { to: `${pathname}?${q.toString()}`, label: site.domain, active, img: site.favicon }
-      }
-    )
+      return { to: `${pathname}?${q.toString()}`, label: site.domain, active, img: site.favicon }
+    })
 
     return [langData, siteData]
   }, [pathname, params, sites])
