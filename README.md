@@ -10,9 +10,9 @@
     <a href="https://github.com/rumorsflow/ui/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/dub/l/vibe-d.svg" alt="LICENSE" /></a>
 </p>
 
-This is the Rumors UI built with React and Vite.
+The Rumors UI is a user interface designed and developed using the React and Vite.
 
-It is mainly intended to be embedded as part of a Rumors app executable.
+It is mainly intended to be embedded as part of a [Rumors](https://github.com/rumorsflow/rumors) app executable.
 
 ### Development
 
