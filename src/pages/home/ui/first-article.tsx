@@ -1,4 +1,5 @@
 import React from 'react'
+import { IconPhoto } from '@tabler/icons-react'
 
 import { Article } from '@/api'
 import { Image } from '@/ui'
@@ -17,7 +18,7 @@ export const FirstArticle: React.FC<FirstArticleProps> = ({ article }) => {
 
   return (
     <div className="first-article">
-      <Image className="first-article__image" src={article.image} alt="" />
+      <Image className="first-article__image" src={article.image} alt="" thumb={<IconPhoto size={80} stroke={1.5} />} />
       <div className="first-article__content">
         <div className="article-share">
           <ArticleShare article={article} />

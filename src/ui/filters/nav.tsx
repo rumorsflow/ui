@@ -1,6 +1,8 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation, useSearchParams } from 'react-router-dom'
+import { IconLanguage, IconMoodSad, IconWorldSearch, IconWorldX } from '@tabler/icons-react'
 
+import { useToggle } from '@/hooks'
 import { useSites } from '@/store'
 import { Site } from '@/api'
 
@@ -59,17 +61,77 @@ const useData = () => {
 
 export const Nav: React.FC = () => {
   const [langs, sites] = useData()
+  const ref = useRef<HTMLInputElement>(null)
+  const [isFilter, toggle] = useToggle()
+  const [filtered, setFiltered] = useState(sites)
+  const [search, setSearch] = useState('')
+
+  const onToggle = useCallback(() => {
+    toggle((value) => {
+      if (!ref.current) {
+        return value
+      }
+
+      if (value) {
+        ref.current.blur()
+        ref.current.value = ''
+        setSearch('')
+      } else {
+        ref.current.focus()
+      }
+
+      return !value
+    })
+  }, [toggle, setSearch])
+
+  useEffect(() => {
+    const timeoutId = setTimeout(
+      () =>
+        setFiltered(search.length > 0 ? sites.filter((item) => item.label.startsWith(search.toLowerCase())) : sites),
+      200
+    )
+
+    return () => clearTimeout(timeoutId)
+  }, [search, sites])
 
   return (
     <nav className="filters">
       <ul>
         <li>
-          <h5 className="filters__link">Languages</h5>
+          <div className="filters__item">
+            <IconLanguage size={22} />
+            <h5 className="filters__title">Languages</h5>
+          </div>
           <NavItem data={langs} />
         </li>
         <li>
-          <h5 className="filters__link">Sites</h5>
-          <NavItem data={sites} />
+          <div className="filters__item">
+            <button type="button" onClick={onToggle} className="hover:text-dark-500 dark:hover:text-white">
+              {isFilter ? <IconWorldX size={22} /> : <IconWorldSearch size={22} />}
+            </button>
+            <div className="flex grow">
+              <input
+                ref={ref}
+                type="text"
+                placeholder="Enter text to filter sites."
+                className={isFilter ? 'w-auto grow filters__search' : 'w-0 filters__search'}
+                onChange={(e) => setSearch(e.target.value)}
+                onFocus={(e) => e.target.select()}
+              />
+              {!isFilter && (
+                <h5 className="filters__title cursor-pointer" onClick={onToggle}>
+                  Sites
+                </h5>
+              )}
+            </div>
+          </div>
+          {filtered.length > 0 ? (
+            <NavItem data={filtered} />
+          ) : (
+            <div className="filters__empty">
+              <IconMoodSad size={60} stroke={1.5} />
+            </div>
+          )}
         </li>
       </ul>
     </nav>

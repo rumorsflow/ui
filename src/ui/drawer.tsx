@@ -53,7 +53,7 @@ export const Drawer: React.FC<DrawerProps> = ({
           {title && <h5 className="drawer__title">{title}</h5>}
           <button type="button" onClick={onHide} className="drawer__close">
             <span className="sr-only">Close menu</span>
-            <IconX size={20} />
+            <IconX size={22} />
           </button>
           {children}
         </div>,

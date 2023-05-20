@@ -1,4 +1,17 @@
 @layer components {
+  .empty-article-list {
+    @apply
+    mt-auto
+    mb-auto
+    flex
+    flex-col
+    gap-4
+    justify-center
+    items-center
+    text-dark-300
+    dark:text-gray-400;
+  }
+
   .article-list {
     @apply
     grid
@@ -186,7 +199,6 @@
 
   .article__time {
     @apply
-    font-extralight
     text-dark-300
     dark:text-dark-200
     text-xs
@@ -211,7 +223,6 @@
     overflow-hidden
     block
     text-sm
-    font-light
     leading-6
     font-medium
     text-dark-300

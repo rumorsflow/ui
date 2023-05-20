@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import { Mode } from '@/ui'
 
-import { useHotkeys, useTheme } from '.'
+import { useTheme } from '.'
 
 const THEME_STORAGE_KEY = 'rumors.theme.color-scheme'
 
@@ -33,11 +33,6 @@ export const useThemeMode = (): [Mode, React.Dispatch<React.SetStateAction<Mode>
 
     document.documentElement.classList.remove('dark')
   }, [])
-
-  useHotkeys([
-    ['ctrl+J', toggleMode],
-    ['mod+J', toggleMode],
-  ])
 
   useEffect(() => {
     setMode(contextMode ?? getPrefersColorScheme())

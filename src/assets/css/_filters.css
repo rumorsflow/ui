@@ -11,16 +11,38 @@
     overflow-hidden;
   }
 
-  .filters__link {
+  .filters__item {
     @apply
-    overflow-hidden
     mb-2
-    font-semibold
-    text-dark-400
-    dark:text-dark-100
     flex
-    gap-1
-    items-center;
+    gap-4
+    items-center
+    text-dark-400
+    dark:text-dark-100;
+  }
+
+  .filters__title {
+    @apply
+    flex
+    items-center
+    leading-none
+    font-semibold;
+  }
+
+  .filters__search {
+    @apply
+    min-w-0
+    rounded-none
+    outline-none
+    caret-inherit
+    transition-all
+    duration-200
+    bg-transparent
+    leading-none
+    overflow-hidden
+    border-b
+    border-dark-900/10
+    dark:border-dark-50/10;
   }
 
   .filters > ul > li:not(:first-child) {
@@ -28,8 +50,20 @@
     mt-4;
   }
 
+  .filters__empty {
+    @apply
+    flex
+    grow
+    justify-center
+    items-center
+    p-4
+    text-dark-300
+    dark:text-dark-100;
+  }
+
   .filter {
     @apply
+    ml-[0.6875rem]
     space-y-2
     border-l
     border-dark-900/10
@@ -45,7 +79,7 @@
     items-center
     gap-2
     border-l
-    pl-4
+    pl-[1.625rem]
     py-1
     -ml-px
     border-transparent

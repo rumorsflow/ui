@@ -29,15 +29,28 @@
     p-2;
   }
 
+  .notifications__footer {
+    @apply
+    flex
+    gap-px
+    grow
+    border-t
+    border-dark-900/10
+    dark:border-dark-50/10
+    bg-dark-900/10
+    dark:bg-dark-50/10
+    justify-center
+    items-center;
+  }
+
   .notifications__clear {
     @apply
     grow
     p-3
-    border-t
-    border-dark-900/10
-    dark:border-dark-50/10
+    bg-gray-50
     hover:bg-gray-100
     dark:hover:bg-dark-800
+    dark:bg-dark-700
     flex
     gap-2
     justify-center

@@ -1,5 +1,6 @@
 import React from 'react'
 import { defer, LoaderFunctionArgs } from 'react-router-dom'
+import { IconMoodSad } from '@tabler/icons-react'
 
 import { APP_PER_PAGE } from '@/config'
 import { Article, fetchArticles, FetchResponse, fetchSites, Page, Site } from '@/api'
@@ -81,19 +82,27 @@ function ArticleList() {
   return (
     <>
       {article && <FirstArticle article={article} />}
-      <div className="article-list">
-        {pages.map((page, index) => (
-          <React.Fragment key={index}>
-            {page.data?.map((item) => (
-              <GridArticle
-                key={item.id}
-                onEnter={pages.at(-1)?.data?.at(-1) === item ? onEnter : undefined}
-                article={item}
-              />
-            ))}
-          </React.Fragment>
-        ))}
-      </div>
+      {pages.length > 0 && pages[0].total > 0 && (
+        <div className="article-list">
+          {pages.map((page, index) => (
+            <React.Fragment key={index}>
+              {page.data?.map((item) => (
+                <GridArticle
+                  key={item.id}
+                  onEnter={pages.at(-1)?.data?.at(-1) === item ? onEnter : undefined}
+                  article={item}
+                />
+              ))}
+            </React.Fragment>
+          ))}
+        </div>
+      )}
+      {!article && (pages.length === 0 || pages[0].total === 0) && (
+        <div className="empty-article-list">
+          <IconMoodSad size={150} stroke={1.5} />
+          <span className="text-xl font-bold">No news found.</span>
+        </div>
+      )}
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { IconBell, IconTrash } from '@tabler/icons-react'
+import { IconBell, IconRefreshDot, IconTrashFilled } from '@tabler/icons-react'
 
 import { useToggle } from '@/hooks'
 import { useArticles } from '@/store'
@@ -19,8 +19,12 @@ export const Notifications: React.FC = () => {
   const onClear = useCallback(() => {
     clear()
     toggle(false)
+  }, [clear, toggle])
+
+  const onRefresh = useCallback(() => {
+    onClear()
     navigate('/')
-  }, [clear, toggle, navigate])
+  }, [onClear, navigate])
 
   return (
     <Popover
@@ -45,10 +49,16 @@ export const Notifications: React.FC = () => {
       {articles.length > 0 ? (
         <>
           <Content articles={articles} />
-          <button type="button" className="notifications__clear" onClick={onClear}>
-            <IconTrash size={16} stroke={1.5} />
-            clear all
-          </button>
+          <div className="notifications__footer">
+            <button type="button" className="notifications__clear" onClick={onRefresh}>
+              <IconRefreshDot size={16} stroke={2} />
+              refresh
+            </button>
+            <button type="button" className="notifications__clear" onClick={onClear}>
+              <IconTrashFilled size={16} stroke={1.5} />
+              clear
+            </button>
+          </div>
         </>
       ) : (
         <h5 className="notifications__no-data">no new rumors</h5>
