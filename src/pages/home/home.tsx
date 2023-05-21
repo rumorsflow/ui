@@ -7,7 +7,7 @@ import { Article, fetchArticles, FetchResponse, fetchSites, Page, Site } from '@
 import { useSites } from '@/store'
 import { Awaiter, RouteErrorPage } from '@/ui'
 
-import { FirstArticle, GridArticle } from './ui'
+import { Rumor1, Rumor } from './ui'
 import { useHomeValue } from './hooks'
 
 const emptyResponse = <T = unknown,>(): FetchResponse<Page<T>> => ({ data: { total: 0, index: 0, size: 0 } })
@@ -76,18 +76,18 @@ export function loader({ request }: LoaderFunctionArgs) {
   })
 }
 
-function ArticleList() {
+function Rumors() {
   const { article, pages, onEnter } = useHomeValue()
 
   return (
     <>
-      {article && <FirstArticle article={article} />}
+      {article && <Rumor1 article={article} />}
       {pages.length > 0 && pages[0].total > 0 && (
-        <div className="article-list">
+        <div className="rumors">
           {pages.map((page, index) => (
             <React.Fragment key={index}>
               {page.data?.map((item) => (
-                <GridArticle
+                <Rumor
                   key={item.id}
                   onEnter={pages.at(-1)?.data?.at(-1) === item ? onEnter : undefined}
                   article={item}
@@ -98,7 +98,7 @@ function ArticleList() {
         </div>
       )}
       {!article && (pages.length === 0 || pages[0].total === 0) && (
-        <div className="empty-article-list">
+        <div className="no-rumors">
           <IconMoodSad size={150} stroke={1.5} />
           <span className="text-xl font-bold">No news found.</span>
         </div>
@@ -110,7 +110,7 @@ function ArticleList() {
 export function Component() {
   return (
     <Awaiter>
-      <ArticleList />
+      <Rumors />
     </Awaiter>
   )
 }

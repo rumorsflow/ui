@@ -6,29 +6,24 @@ import { Image } from '@/ui'
 import { Article } from '@/api'
 import { fromNow } from '@/lib'
 
-type ArticleContentProps = {
+type RumorContentProps = {
   article: Article
   className: string
 }
 
-const ArticleContent: React.FC<ArticleContentProps> = ({ article, className }) => {
+const RumorContent: React.FC<RumorContentProps> = ({ article, className }) => {
   const sites = useSites((state) => state.sites)
 
   return (
-    <span className={`text-sm flex flex-col gap-1 ${className}`}>
-      <span className="flex justify-between items-center">
-        <span className="article__site hover:no-underline">{sites[article.site_id].domain}</span>
-        <time className="article__time">{fromNow(article.pub_date)}</time>
-      </span>
-      <a
-        href={article.link}
-        className="line-clamp-2 overflow-hidden hover:underline hover:underline-offset-4"
-        target="_blank"
-        rel="noreferrer"
-      >
+    <div className={`text-sm flex flex-col gap-1 ${className}`}>
+      <div className="caption">
+        <span className="caption__site">{sites[article.site_id].domain}</span>
+        <time className="caption__time">{fromNow(article.pub_date)}</time>
+      </div>
+      <a href={article.link} className="line-clamp-2 overflow-hidden" target="_blank" rel="noreferrer">
         {article.title}
       </a>
-    </span>
+    </div>
   )
 }
 
@@ -48,11 +43,11 @@ export const Content: React.FC<ContentProps> = ({ articles }) => (
               className="w-full col-span-2 h-[4rem]"
               thumb={<IconPhoto size={20} stroke={1.5} />}
             />
-            <ArticleContent article={item} className="col-span-5" />
+            <RumorContent article={item} className="col-span-5" />
           </div>
         ) : (
           <div className="flex gap-2 w-full p-2 shadow-md bg-white dark:bg-dark-600">
-            <ArticleContent article={item} className="grow" />
+            <RumorContent article={item} className="grow" />
           </div>
         )}
       </React.Fragment>
