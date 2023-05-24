@@ -39,10 +39,7 @@
     duration-200
     bg-transparent
     leading-none
-    overflow-hidden
-    border-b
-    border-dark-900/10
-    dark:border-dark-50/10;
+    overflow-hidden;
   }
 
   .filters > ul > li:not(:first-child) {

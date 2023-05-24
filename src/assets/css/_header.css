@@ -31,7 +31,8 @@
     font-bold
     drop-shadow-lg
     shadow-dark-900
-    align-middle;
+    align-middle
+    cursor-pointer;
   }
 
   .header__logo > span {

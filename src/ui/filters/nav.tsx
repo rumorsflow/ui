@@ -113,7 +113,7 @@ export const Nav: React.FC = () => {
               <input
                 ref={ref}
                 type="text"
-                placeholder="Enter text to filter sites"
+                placeholder="Search..."
                 className={isFilter ? 'w-auto grow filters__search' : 'w-0 filters__search'}
                 onChange={(e) => setSearch(e.target.value)}
                 onFocus={(e) => e.target.select()}
