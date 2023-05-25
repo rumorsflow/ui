@@ -23,7 +23,7 @@ export const Rumor1: React.FC<Rumor1Props> = ({ article }) => {
       <div className="rumor-1__info">
         <Share title={article.title} link={article.link} />
         <Caption siteId={article.site_id} time={article.pub_date} />
-        <Content title={article.title} link={article.link} desc={article.short_desc} />
+        <Content title={article.title} link={article.link} desc={article.desc} />
       </div>
     </article>
   )

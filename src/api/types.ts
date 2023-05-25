@@ -18,10 +18,9 @@ export type Article = {
   site_id: string
   lang: string
   title: string
-  short_desc?: string
+  desc?: string
   link: string
   image?: string
   pub_date: string
   pub_diff: string
-  categories?: string[]
 }
