@@ -1,16 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useInView } from 'framer-motion'
 
 type ImageProps = {
   src: string
   alt: string
   className?: string
   thumb?: React.ReactNode
-}
-
-const variants = {
-  visible: { opacity: 1, transition: { duration: 0 } },
-  hidden: { opacity: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 }
 
 export const Image: React.FC<ImageProps> = ({ src, alt, className = '', thumb }) => {
@@ -31,18 +26,17 @@ export const Image: React.FC<ImageProps> = ({ src, alt, className = '', thumb })
     <div ref={ref} className={['image', className].join(' ')}>
       {isInView && (
         <>
-          <motion.img
+          <img
             ref={refImg}
             src={src}
             alt={alt}
             onLoad={onLoad}
-            animate={loading ? 'hidden' : 'visible'}
-            variants={variants}
+            className={`transition-opacity duration-500 ease-in ${loading ? 'opacity-0' : 'opacity-100'}`}
           />
           {!!thumb && (
-            <motion.span animate={loading ? 'visible' : 'hidden'} variants={variants}>
+            <span className={`transition-opacity duration-500 ease-out ${loading ? 'opacity-100' : 'opacity-0'}`}>
               {thumb}
-            </motion.span>
+            </span>
           )}
         </>
       )}
