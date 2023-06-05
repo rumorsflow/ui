@@ -197,6 +197,13 @@
     line-clamp-6;
   }
 
+  .rumor-1 img,
+  .rumor img {
+    @apply
+    transition-transform
+    duration-500;
+  }
+
   .rumor-1:hover img,
   .rumor:hover img {
     @apply
